@@ -2,7 +2,7 @@
 My Scala journey in a repo. I'm learning with the [Scala Book](https://docs.scala-lang.org/overviews/scala-book/introduction.html).
 
 ## Hello World
-- `scalac <scala_file_path>.scala` compiles codein a file.
+- `scalac <scala_file_path>.scala` compiles code in a file.
 - `scala <class_name>` runs the compiled application.
 - `scalac` creates tow _.class_ files which are JVM bytecode files; same as those you get from running `javac` if you're writing Java.
 
@@ -71,4 +71,25 @@ System.err.println("yikes, an error happened")
 ```
 - You can use the `readLine` method to read command-line input but it needs to be imported first. (check `HelloInteractive.scala` for example).
 
+## Control Structures
+- Scala `if` statements look like this
 
+```scala
+if (a == b) doSomething()
+
+// OR 
+if (a == b) {
+    doSomething()
+} else {
+    doSomethingElse()
+}
+
+// OR
+if (a == b) {
+    doSomething()
+} else if (a < b) {
+    doSomethingElse()
+} else {
+    doThisInstead()
+}
+```
