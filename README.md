@@ -93,3 +93,31 @@ if (a == b) {
     doThisInstead()
 }
 ```
+
+## For Loops
+```scala
+// With Sequence. Same thing applies for Lists
+val nums = Seq(1,2,3,4)
+
+for (n <- nums) println(n)
+
+// With Maps
+val ratings = Map(
+     "Lady in the Water"  -> 3.0, 
+    "Snakes on a Plane"  -> 4.0, 
+    "You, Me and Dupree" -> 3.5
+)
+
+for ((name, rating) <- ratings) println(s"Movie: $name, Rating: $rating")
+
+ratings.forEach {
+    case(movie, rating) => println(s"key: $movie, value: $rating)
+}
+```
+
+## For Expressions
+- For-expressions can be used to create new collections from existing ones.
+```scala
+val nums = (1,2,3,4,5)
+val doubleNums = for (n <- nums) yield n*2
+```
