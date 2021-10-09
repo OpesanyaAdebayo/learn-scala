@@ -51,3 +51,11 @@ val lastName = "John"
 val stringInterpolation = s"$firstName $lastName"
 val plusOperator = firstName + lastName
 ```
+
+- You can create a multiline string by putting th string in triple quotes. To avoid the the text being indented, put a `|` symbol at the start of each new line and call the `stripMargin` method.
+```scala
+val text = """There is a man
+              |Who lived in the jungle
+              |But had no food """.stripMaargin
+
+```
