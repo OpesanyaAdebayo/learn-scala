@@ -121,3 +121,59 @@ ratings.forEach {
 val nums = (1,2,3,4,5)
 val doubleNums = for (n <- nums) yield n*2
 ```
+
+## Match Expressions
+- `match` is used like a `switch` statement in other languages.
+```scala
+// i is an integer
+i match {
+    case 1  => println("January")
+    case 2  => println("February")
+    case 3  => println("March")
+    case 4  => println("April")
+    case 5  => println("May")
+    case 6  => println("June")
+    case 7  => println("July")
+    case 8  => println("August")
+    case 9  => println("September")
+    case 10 => println("October")
+    case 11 => println("November")
+    case 12 => println("December")
+    // catch the default with a variable so you can print it
+    case _  => "Invalid month"
+}
+```
+- A `match` expression can also be used as the body of a method, since it returns a value.
+```scala
+def convertBooleanToString(bool: Boolean): String = bool match {
+    case true => "you said true"
+    case false => "you said false"
+}
+```
+
+- You can also handle multiple cases in one `case` statement
+```scala
+def isTrue(a: Any) = a match {
+    case 0 | "" => flasme
+    case _ => true
+}
+
+val evenOrOdd = i match {
+    case 1 | 3 | 5 | 7 | 9 => println("odd")
+    case 2 | 4 | 6 | 8 | 10 => println("even")
+    case _ => println("some other number")
+}
+```
+
+- You can also use `if` expressions in `case` statements.
+```scala
+count match {
+    case 1 =>
+        println("one is a lonely number")
+    case x if (x == 2 || x == 3) =>
+        println("two is company, three is a crowd")
+    case x if (x > 3) =>
+        println("4+, that's a party")
+    case _ => println("i'm guessing your number is zero or less")
+}
+```
