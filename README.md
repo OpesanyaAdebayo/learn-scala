@@ -59,3 +59,16 @@ val text = """There is a man
               |But had no food """.stripMaargin
 
 ```
+
+## Command-line I/O
+- You can use `println` to write to STDOUT. If you don't want a new line after,  use `print`. You can also write to STDERR with `System.err.println`.
+
+```scala
+println("Hello, world")
+
+System.err.println("yikes, an error happened")
+
+```
+- You can use the `readLine` method to read command-line input but it needs to be imported first. (check `HelloInteractive.scala` for example).
+
+
