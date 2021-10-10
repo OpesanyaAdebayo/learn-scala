@@ -188,3 +188,77 @@ try {
 }
 
 ```
+
+## Classes
+
+```scala
+class Person(var firstName: string, var lastName: string)
+val p = new Person("John", "Doe")
+println(p.firstName)
+```
+
+- Auxiliary class constructores are defined by defining methods that are named `this` and obey the following rules:
+  - Each auxiliary constructor must have a different signature
+  - Each constructor must call one of the previously defined constructors
+```scala
+val DefaultCrustSize = 12
+val DefaultCrustType = "THIN"
+
+// the primary constructor
+class Pizza (var crustSize: Int, var crustType: String) {
+
+    // one-arg auxiliary constructor
+    def this(crustSize: Int) = {
+        this(crustSize, DefaultCrustType)
+    }
+
+    // one-arg auxiliary constructor
+    def this(crustType: String) = {
+        this(DefaultCrustSize, crustType)
+    }
+
+    // zero-arg auxiliary constructor
+    def this() = {
+        this(DefaultCrustSize, DefaultCrustType)
+    }
+
+    override def toString = s"A $crustSize inch pizza with a $crustType crust"
+
+}
+
+val p1 = new Pizza(DefaultCrustSize, DefaultCrustType)
+val p2 = new Pizza(DefaultCrustSize)
+val p3 = new Pizza(DefaultCrustType)
+val p4 = new Pizza
+```
+
+- You can supply default values for constructor parameters
+```scala
+class Pizza (var crustSize: Int = 12, var crustType: String = "THIN")
+```
+- Methods are usually defined inside classes, and the `def` keyword is used to define a method.
+```scala
+def double(a: Int): Int = a * 2
+
+// double - function name
+// a - input parameter
+// Int (after :) - return type
+
+
+def addThenDouble(a: Int, b: Int): Int = {
+    val sum = a + b
+    val doubled = sum * 2
+    doubled
+}
+```
+- Scala's syntax for Enumerations (enums):
+```scala
+sealed trait DayOfWeek
+case object Sunday extends DayOfWeek
+case object Monday extends DayOfWeek
+case object Tuesday extends DayOfWeek
+case object Wednesday extends DayOfWeek
+case object Thursday extends DayOfWeek
+case object Friday extends DayOfWeek
+case object Saturday extends DayOfWeek
+```
