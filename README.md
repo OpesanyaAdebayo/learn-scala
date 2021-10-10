@@ -72,7 +72,7 @@ System.err.println("yikes, an error happened")
 - You can use the `readLine` method to read command-line input but it needs to be imported first. (check `HelloInteractive.scala` for example).
 
 ## Control Structures
-- Scala `if` statements look like this
+- `if` statements look like this
 
 ```scala
 if (a == b) doSomething()
@@ -94,7 +94,7 @@ if (a == b) {
 }
 ```
 
-## For Loops
+- For Loops
 ```scala
 // With Sequence. Same thing applies for Lists
 val nums = Seq(1,2,3,4)
@@ -115,14 +115,12 @@ ratings.forEach {
 }
 ```
 
-## For Expressions
 - For-expressions can be used to create new collections from existing ones.
 ```scala
 val nums = (1,2,3,4,5)
 val doubleNums = for (n <- nums) yield n*2
 ```
 
-## Match Expressions
 - `match` is used like a `switch` statement in other languages.
 ```scala
 // i is an integer
@@ -176,4 +174,17 @@ count match {
         println("4+, that's a party")
     case _ => println("i'm guessing your number is zero or less")
 }
+```
+- try/catch/finally
+```scala
+var text = ""
+try {
+    text = openAndReadAFile(filename)
+} catch {
+    case e: FileNotFoundException => println("Couldn't find that file.")
+    case e: IOException => println("Had an IOException trying to read that file")
+} finally {
+    // some other code
+}
+
 ```
