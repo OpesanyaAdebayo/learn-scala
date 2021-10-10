@@ -262,3 +262,61 @@ case object Thursday extends DayOfWeek
 case object Friday extends DayOfWeek
 case object Saturday extends DayOfWeek
 ```
+
+## Traits & Abstract Classes
+- You can use Scala `traits` as interfaces where you deine the interface but don't implement any behavior. You can then create a class that extends it. Note: When a class extends a trait, each Abstract method must be implemented.
+```scala
+trait TailWagger {
+    def startTail(): Unit    // abstract
+    def stopTail(): Unit    // abstract
+}
+
+trait Speaker {
+    def speak(): String    // abstract
+}
+
+class Dog extends TailWagger with Speaker {
+    def startTail() = println("tail is wagging")
+    def stopTail() = println("tail is stopped")
+    def speak() = "Woof"
+}
+```
+
+- You can add working methods to a Scala `trait` so you use it like an Abstract Class in Java.
+```scala
+trait Pet {
+    def speak = println("Yo")     // concrete implementation of a speak method
+    def comeToMaster(): Unit      
+}
+
+class Dog(name: String) extends Pet {
+    def comeToMaster(): Unit = println("Woo-hoo, I am coming")
+}
+
+val d = new Dog("Zeus")
+
+d.speak    // Yo
+d.comeToMaster     // Woo-hoo, I am coming
+
+
+class Cat extends Pet {
+    def comeToMaster(): Unit = println("That's not gonna happen.")
+    override def speak(): Unit = println("Meow")    // override 'speak'
+}
+
+val c = new Cat
+c.speak    // Meow
+c.comeToMaster    //That's not gonna happen
+```
+- Scala also has abstract classes, but you rarely need them except when you want to create a base class that requires constructor arguments or your Scla code will be called from Java code.
+```scala
+trait Animal(name: String) // won't compile
+abstract class Animal(name: string) {
+    def speak: Unit = println(s"My name is $name")
+}
+
+class Dog (name: String) extends Animal(name)
+
+val d = new Dog("Bingo")
+d.speak    // My name is Bingo
+```
